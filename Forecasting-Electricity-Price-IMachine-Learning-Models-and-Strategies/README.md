@@ -120,3 +120,5 @@ Pipelines produce local artifacts such as evaluation metrics, forecast compariso
 ## License
 
 MIT License. See `LICENSE`.
+
+**Last Updated**: August 2025
