@@ -30,7 +30,7 @@ class Config:
     n_samples: int = 5000
     extreme_quantile: float = 0.95
     test_size: float = 0.25
-    random_state: int = 42
+    random_state: int = 909
     outputs_dir: Path = Path("outputs")
 
 
@@ -265,6 +265,8 @@ def main() -> int:
     plt.legend()
     plt.tight_layout()
     plt.savefig(cfg.outputs_dir / "target_distribution.png", dpi=160)
+    assets = Path("assets"); assets.mkdir(parents=True, exist_ok=True)
+    plt.savefig(assets / "overview.png", dpi=150)
     plt.close()
 
     print("Saved metrics to:", cfg.outputs_dir / "metrics.csv")

@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 })
 
 dir.create("outputs", showWarnings = FALSE, recursive = TRUE)
-set.seed(42)
+set.seed(909)
 
 # ---- Synthetic "daily climate" table (replace with your real dataset) ----
 n <- 5000
