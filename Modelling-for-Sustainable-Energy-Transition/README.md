@@ -1,116 +1,91 @@
 # Modelling for Sustainable Energy Transition
 
-Scientific review and reproducible analysis toolkit based on the paper:
-**Modelling for sustainable energy transition**  
-Source: https://www.researchgate.net/publication/390549686_Modelling_for_sustainable_energy_transition
+A comprehensive research and modeling project for evaluating sustainable energy transition pathways. The repository combines scientific review content with reproducible Python, R, and notebook analysis workflows.
 
-This repository includes:
+## Table of Contents
 
-- A complete scientific blog post aligned with your assignment guideline.
-- A Python workflow for descriptive statistics, t-tests, and figure generation.
-- An R workflow with equivalent statistical analysis and plots.
-- A Jupyter notebook for interactive exploration and reporting.
-- Standard GitHub repository scaffolding files.
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data Format
+- Analysis Workflow
+- Outputs
+- Reproducibility Notes
+- License
+
+## Overview
+
+This project translates energy transition research into an executable analysis framework. It supports both synthetic and user-provided scenario data and emphasizes transparent statistical comparisons and reporting-ready outputs.
+
+## Features
+
+- Scientific review-aligned project setup
+- Equivalent analysis workflows in Python and R
+- Notebook for interactive narrative analysis
+- Scenario comparison with descriptive and inferential statistics
+- Flexible data mode (synthetic fallback + real CSV support)
 
 ## Project Structure
 
 ```text
 .
-├── .gitattributes
-├── .gitignore
-├── LICENSE
-├── README.md
-├── requirements.txt
-├── Guidelines_Research_Paper_Review.txt
-├── Research_Paper_Review_Blog_Post.md
+├── data/
+│   ├── raw/
+│   │   └── .gitkeep
+│   └── processed/
+│       └── .gitkeep
+├── outputs/
+│   └── .gitkeep
 ├── energy_transition_analysis.py
 ├── energy_transition_analysis.R
 ├── energy_transition_review_notebook.ipynb
-├── data/
-│   ├── raw/
-│   └── processed/
-└── outputs/
+├── Research_Paper_Review_Blog_Post.md
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
 ```
 
-## Files Overview
-
-- `Research_Paper_Review_Blog_Post.md`  
-  Full scientific blog post following the required structure: Introduction, Background, Methodology, Results, Discussion, Reflection, Conclusion, and References.
-
-- `Research_Paper_Review_Blog.md`  
-  Alternate local copy of the blog post kept in the project and excluded from push.
-
-- `energy_transition_analysis.py`  
-  End-to-end reproducible Python script:
-  - Creates project directories
-  - Loads or generates scenario data
-  - Computes mean/median/standard deviation
-  - Performs Welch t-tests
-  - Saves figures and interpretation notes
-
-- `energy_transition_analysis.R`  
-  Equivalent R pipeline using `tidyverse` for data handling and plotting.
-
-- `energy_transition_review_notebook.ipynb`  
-  Interactive notebook for narrative + code workflow and figure generation.
-
-## Quick Start
-
-### 1) Clone repository
-
-```bash
-git clone <your-repo-url>
-cd "Modelling for sustainable energy transition"
-```
-
-### 2) Set up Python environment
+## Installation
 
 ```bash
 python -m venv .venv
-# Windows PowerShell
-.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-### 3) Run Python analysis
-
-```bash
-python energy_transition_analysis.py
-```
-
-Generated outputs will appear in:
-
-- `data/processed/`
-- `outputs/`
-
-### 4) Run Jupyter notebook
-
-```bash
-jupyter notebook energy_transition_review_notebook.ipynb
-```
-
-### 5) Run R analysis
-
-Install required packages in R (if missing):
+R setup:
 
 ```r
 install.packages(c("tidyverse"))
 ```
 
-Then run:
+## Usage
+
+### Python
+
+```bash
+python energy_transition_analysis.py
+```
+
+### R
 
 ```r
 source("energy_transition_analysis.R")
 ```
 
-## Data Notes
+### Notebook
 
-The scripts support two modes:
+```bash
+jupyter notebook energy_transition_review_notebook.ipynb
+```
 
-1. **Real-data mode:** If `data/raw/transition_scenarios.csv` exists, it is used directly.
-2. **Template mode:** If no data file exists, synthetic data is generated so the workflow can be tested end-to-end.
+## Data Format
 
-Expected CSV columns:
+When using real data, include `data/raw/transition_scenarios.csv` with columns such as:
 
 - `scenario`
 - `year`
@@ -118,21 +93,24 @@ Expected CSV columns:
 - `co2_emissions_mt`
 - `system_cost_billion_usd`
 
-## Suggested Academic Workflow
+## Analysis Workflow
 
-1. Read and annotate the target paper.
-2. Use `Research_Paper_Review_Blog_Post.md` as a structured base.
-3. Replace template/synthetic data with extracted or reconstructed data.
-4. Run Python, notebook, and/or R pipelines.
-5. Integrate generated plots into your final blog/report with citations and interpretation.
+1. Load scenario dataset (real or synthetic fallback).
+2. Compute descriptive summaries by scenario and time.
+3. Run inferential tests for key transition indicators.
+4. Generate plots and export structured outputs.
+5. Integrate results into scientific review narrative.
 
-## Reproducibility and Ethics
+## Outputs
 
-- Keep assumptions explicit when reconstructing paper results.
-- Document data provenance and transformation steps.
-- Distinguish observed findings from model assumptions.
-- Report uncertainty and limitations transparently.
+Analysis artifacts are produced in `data/processed/` and `outputs/` for reporting and downstream use.
+
+## Reproducibility Notes
+
+- Keep assumptions explicit when reconstructing scenario data.
+- Track data provenance and transformation logic.
+- Report uncertainty and methodological limitations clearly.
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for details.
+MIT License. See `LICENSE`.
