@@ -1,116 +1,107 @@
 # ML for Extreme Weather Event Prediction
 
-This repository is a **starter, reproducible workflow** for building and evaluating machine-learning baselines for **extreme climate / weather event prediction** (rare-event classification), with parallel implementations in:
+A comprehensive machine learning project for rare-event prediction in climate and weather systems. The repository includes Python, R, and notebook implementations with a focus on imbalance-aware metrics, calibration, and reproducible evaluation.
 
-- **Python** (`src/`)
-- **R** (`r/`)
-- **Jupyter Notebook** (`notebooks/`)
+## Table of Contents
 
-The goal is to provide a clean project skeleton you can adapt to real datasets (reanalysis, station data, gridded climate products) while keeping the evaluation aligned with what matters for extremes: **class imbalance, calibration, thresholding, and event-focused metrics**.
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Dataset Guidance
+- Models and Metrics
+- Outputs
+- Best Practices
+- License
 
-## What this project does
+## Overview
 
-- **Creates a simple “extreme event” label** via a user-configurable percentile threshold (e.g., \(y=1\) if target exceeds the 95th percentile).
-- **Splits data with leakage-aware logic** (time-ordered split option supported in the notebook; scripts default to a randomized split for the synthetic demo).
-- Trains a small baseline suite:
-  - **Logistic Regression** (interpretable baseline)
-  - **Random Forest** (non-linear baseline)
-- Reports evaluation targeted to rare events:
-  - **Precision / Recall / F1**
-  - **ROC-AUC** (with imbalance caveats)
-  - **PR-AUC** (preferred for rare events)
-  - **Brier score** (probabilistic calibration)
-- Saves light outputs (figures + metrics CSV) into `outputs/` (ignored by git by default).
+This project provides a practical baseline framework for extreme event prediction tasks such as heavy precipitation, high temperature, and extreme wind scenarios. It is designed for educational use, paper-review replication, and fast adaptation to real climate datasets.
 
-## Repository structure
+## Features
 
+- Percentile-based extreme labeling
+- Python and R pipelines for model training and evaluation
+- Interactive notebook workflow
+- Rare-event metrics including PR-AUC and calibration-aware scoring
+- Local output artifacts for metrics and figures
+
+## Project Structure
+
+```text
+.
+├── data/
+│   └── .gitkeep
+├── notebooks/
+│   └── extreme_event_prediction_workflow.ipynb
+├── outputs/
+│   └── .gitkeep
+├── r/
+│   └── extreme_event_prediction.R
+├── src/
+│   ├── extreme_event_prediction.py
+│   └── __init__.py
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
 ```
-ML for Extreme Weather Event Prediction/
-  README.md
-  requirements.txt
-  LICENSE
-  .gitignore
-  .gitattributes
-  src/
-    extreme_event_prediction.py
-  r/
-    extreme_event_prediction.R
-  notebooks/
-    extreme_event_prediction_workflow.ipynb
-  data/
-    .gitkeep
-  outputs/
-    .gitkeep
-```
 
-## Quickstart (Python)
-
-### 1) Create and activate a virtual environment
+## Installation
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\activate
-```
-
-### 2) Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
-### 3) Run the pipeline
+## Usage
+
+### Python
 
 ```bash
 python -m src.extreme_event_prediction
 ```
 
-Outputs (metrics + plots) will be written to `outputs/`.
-
-## Quickstart (Notebook)
-
-```bash
-jupyter notebook
-```
-
-Then open `notebooks/extreme_event_prediction_workflow.ipynb` and run cells top-to-bottom.
-
-## Quickstart (R)
-
-Open R (or RStudio) in the repo root and run:
+### R
 
 ```r
 source("r/extreme_event_prediction.R")
 ```
 
-The R script is self-contained for the synthetic demo and will write outputs to `outputs/`.
+### Notebook
 
-## Using your own climate dataset
+```bash
+jupyter notebook notebooks/extreme_event_prediction_workflow.ipynb
+```
 
-You can replace the synthetic generator with your own dataset by producing a tabular dataframe with:
+## Dataset Guidance
 
-- **Predictors**: meteorological / climate covariates (and/or lagged values)
-- **Target**: a continuous quantity from which extremes are defined (e.g., daily max temperature, precipitation accumulation, wind gust)
-- **Time column** (strongly recommended): for leakage control and realistic validation
+For real datasets, include:
 
-Suggested dataset sources (examples):
+- predictor variables (meteorological, lagged, and contextual)
+- continuous target used to define extremes
+- timestamp column for time-aware validation
 
-- Reanalysis: ERA5
-- Satellite / gridded precipitation: CHIRPS, IMERG
-- Station datasets / national services (where licensing permits)
+## Models and Metrics
 
-## Notes on best practices for extremes
+- Baselines: Logistic Regression and Random Forest
+- Metrics: Precision, Recall, F1, ROC-AUC, PR-AUC, Brier score
+- Validation: prefer blocked or rolling time splits for deployment realism
 
-- **Leakage control** matters more than model choice. Prefer blocked time splits, rolling origin validation, or spatial cross-validation depending on your task.
-- **PR-AUC and calibration** are often more informative than accuracy for rare events.
-- If your downstream use is “issue a warning”, calibrate probabilities and choose thresholds with stakeholder costs in mind (false negatives vs false positives).
+## Outputs
 
-## Excluded local files (not committed)
+Generated artifacts (metrics/plots) are written under `outputs/` for easy reporting and comparison.
 
-By instruction, these files are present locally but **intentionally excluded from git history** via `.gitignore`:
+## Best Practices
 
-- `Guidelines_Research_Paper_Review.txt`
-- `Extreme_Event_Prediction_blog_post.md`
+- Prioritize leakage control over model complexity.
+- Prefer PR-AUC and calibration checks for rare classes.
+- Choose decision thresholds based on application costs.
+- Report uncertainty and false-negative risk explicitly.
 
 ## License
 
-MIT (see `LICENSE`).
+MIT License. See `LICENSE`.
