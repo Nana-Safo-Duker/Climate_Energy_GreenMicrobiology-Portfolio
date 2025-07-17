@@ -33,21 +33,45 @@ class Config:
     target_col: str = "price_index"
     output_dir: Path = Path("outputs")
     n_splits: int = 5
-    random_state: int = 42
+    random_state: int = 707
 
 
 def ensure_directories(cfg: Config) -> None:
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
     Path("data/raw").mkdir(parents=True, exist_ok=True)
     Path("data/processed").mkdir(parents=True, exist_ok=True)
+    Path("assets").mkdir(parents=True, exist_ok=True)
+
+
+def synthesize_price_index(
+    n_hours: int = 24 * 180, seed: int = 707
+) -> pd.DataFrame:
+    """Synthetic electricity price index when no CSV is present."""
+    rng = np.random.default_rng(seed)
+    ts = pd.date_range("2023-01-01", periods=n_hours, freq="h")
+    hour = ts.hour.to_numpy()
+    dow = ts.dayofweek.to_numpy()
+    doy = ts.dayofyear.to_numpy()
+    base = 48.0
+    daily = 8.0 * np.sin(2 * np.pi * (hour / 24.0) - 0.4)
+    weekly = 3.0 * (dow < 5).astype(float) - 2.0 * (dow >= 5).astype(float)
+    seasonal = 5.0 * np.sin(2 * np.pi * (doy / 365.25))
+    spikes = rng.choice([0.0, 12.0, 25.0], size=n_hours, p=[0.92, 0.06, 0.02])
+    noise = rng.normal(0, 2.5, size=n_hours)
+    price = np.maximum(base + daily + weekly + seasonal + spikes + noise, 5.0)
+    return pd.DataFrame({"timestamp": ts, "price_index": price})
 
 
 def load_data(cfg: Config) -> pd.DataFrame:
     if not cfg.data_path.exists():
-        raise FileNotFoundError(
-            f"Input data not found at {cfg.data_path}. "
-            "Create the CSV with at least [timestamp, price_index] columns."
+        print(
+            f"Input data not found at {cfg.data_path}; "
+            "generating synthetic electricity price index for demo."
         )
+        df = synthesize_price_index(seed=cfg.random_state)
+        cfg.data_path.parent.mkdir(parents=True, exist_ok=True)
+        df.to_csv(cfg.data_path, index=False)
+        return df
 
     df = pd.read_csv(cfg.data_path)
     if (
@@ -112,10 +136,10 @@ def preprocess_features(
 
 
 def evaluate(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
-    rmse = mean_squared_error(y_true, y_pred, squared=False)
+    rmse = float(np.sqrt(mean_squared_error(y_true, y_pred)))
     return {
         "MAE": float(mean_absolute_error(y_true, y_pred)),
-        "RMSE": float(rmse),
+        "RMSE": rmse,
         "R2": float(r2_score(y_true, y_pred)),
     }
 
