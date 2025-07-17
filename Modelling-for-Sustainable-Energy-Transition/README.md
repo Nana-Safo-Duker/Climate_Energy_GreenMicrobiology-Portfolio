@@ -114,3 +114,5 @@ Analysis artifacts are produced in `data/processed/` and `outputs/` for reportin
 ## License
 
 MIT License. See `LICENSE`.
+
+**Last Updated**: July 2025
