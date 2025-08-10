@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+
+*.ipynb text eol=lf
+*.R text eol=lf
+*.py text eol=lf
+*.md text eol=lf
