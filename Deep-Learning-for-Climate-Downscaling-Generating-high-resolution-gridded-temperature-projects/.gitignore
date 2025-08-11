@@ -1,0 +1,50 @@
+# Python caches and artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# R artifacts
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Data and model artifacts
+data/raw/
+data/interim/
+data/processed/
+outputs/
+models/
+checkpoints/
+logs/
+*.log
+*.tmp
+
+# Large scientific files
+*.nc
+*.h5
+*.hdf5
+*.grib
+*.grb
+
+# Local-only writing artifacts (keep on disk, do not push)
+Guidelines_Research_Paper_Review.txt
+scientific_blog_post.md
