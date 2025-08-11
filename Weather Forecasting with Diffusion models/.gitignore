@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / outputs (keep folder placeholders)
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.nc
+*.h5
+*.hdf5
+*.parquet
+*.npz
+*.ckpt
+*.pt
+*.pth
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Local writing artifacts (keep locally; do not commit/push)
+Guidelines_Research_Paper_Review.txt
+Continuous_Ensemble_Weather_Forecasting_Diffusion_Blog_Post.md
+Screenshot*.png
+
+# Keep demo figures
+!assets/
+!assets/*.png
+!assets/**/*.png
