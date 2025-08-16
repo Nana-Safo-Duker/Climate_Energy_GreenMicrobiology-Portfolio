@@ -1,42 +1,49 @@
 # Energy Load Forecasting Using Machine Learning
 
-This repository is a **reproducible starter project** for energy/electricity load forecasting using machine learning. It includes:
-- A **scientific blog post** written using your rubric (`Energy_Load_Forecasting_Scientific_Blog_Post.md`)
-- A **Python baseline pipeline** with time-series cross-validation (`src/energy_load_forecasting.py`)
-- A matching **R baseline pipeline** (`src/energy_load_forecasting.R`)
-- A **Jupyter notebook** that runs end-to-end (`notebooks/01_energy_load_forecasting_ml.ipynb`)
+A comprehensive machine learning project for short-term energy load forecasting with reproducible Python and R workflows. The repository supports synthetic or real datasets, time-series-safe feature engineering, and robust model evaluation.
 
-## Project structure
+## Table of Contents
 
-- `Energy_Load_Forecasting_Scientific_Blog_Post.md`: blog post following the assignment guideline
-- `Guidelines_Research_Paper_Review.txt`: rubric / outline you provided
-- `notebooks/01_energy_load_forecasting_ml.ipynb`: runnable notebook (synthetic data by default)
-- `src/energy_load_forecasting.py`: Python pipeline (synthetic data by default)
-- `src/energy_load_forecasting.R`: R pipeline (synthetic data by default)
-- `.gitattributes`, `.gitignore`, `LICENSE`, `requirements.txt`: GitHub repository essentials
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Dataset Format
+- Modeling Approach
+- Outputs
+- Extensions
+- License
 
-## Dataset format
+## Overview
 
-If you have a real dataset, provide it as a CSV with at least:
-- `datetime`: parseable timestamp (e.g., `2024-01-01 00:00:00`)
-- `load`: numeric load value (kW/MW/etc.)
+This project provides an end-to-end forecasting scaffold for energy load prediction, including scripts and a notebook for baseline modeling, evaluation, and reporting. It is suitable for paper-review assignments, coursework, and portfolio demonstrations.
 
-Optional but recommended:
-- `temp_c`: temperature in Celsius (numeric)
+## Features
 
-Example header:
+- Python and R implementations for cross-language reproducibility
+- Time-series-aware evaluation (no random leakage)
+- Feature engineering for cyclical and autoregressive effects
+- Notebook and CLI support
+- Easy switch from synthetic demo data to operational load data
 
-```csv
-datetime,load,temp_c
-2024-01-01 00:00:00,1332.5,6.2
-2024-01-01 01:00:00,1288.1,5.9
+## Project Structure
+
+```text
+.
+├── notebooks/
+│   └── 01_energy_load_forecasting_ml.ipynb
+├── src/
+│   ├── energy_load_forecasting.py
+│   └── energy_load_forecasting.R
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
 ```
 
-## Quickstart (Python)
-
-### Install
-
-Using Python 3.10+:
+## Installation
 
 ```bash
 python -m venv .venv
@@ -44,76 +51,62 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### Run the script (synthetic data)
-
-```bash
-python .\src\energy_load_forecasting.py
-```
-
-### Run the script (your CSV)
-
-```bash
-python .\src\energy_load_forecasting.py --csv path\to\your_data.csv
-```
-
-The script reports **MAE**, **RMSE**, and **MAPE** using **time-series cross-validation** (no random shuffling).
-
-## Run the notebook
-
-```bash
-python -m ipykernel install --user --name energy-load-forecasting
-jupyter notebook
-```
-
-Then open `notebooks/01_energy_load_forecasting_ml.ipynb`.
-
-## Quickstart (R)
-
-Install required R packages:
+R package setup (if needed):
 
 ```r
 install.packages(c("dplyr","lubridate","ggplot2","randomForest","zoo","tidyr"))
 ```
 
-Run:
+## Usage
+
+### Python
 
 ```bash
-Rscript .\src\energy_load_forecasting.R
+python src/energy_load_forecasting.py
+python src/energy_load_forecasting.py --csv path\to\your_data.csv
 ```
 
-Or with a CSV:
+### R
 
 ```bash
-Rscript .\src\energy_load_forecasting.R path\to\your_data.csv
+Rscript src/energy_load_forecasting.R
+Rscript src/energy_load_forecasting.R path\to\your_data.csv
 ```
 
-## What’s implemented (baseline)
+### Notebook
 
-- **Feature engineering**
-  - Calendar: hour-of-day, day-of-week, month
-  - Cyclical encoding: sin/cos for hour and day-of-week
-  - Autoregressive lags: \(t-1\), \(t-24\)
-  - Rolling mean (24h)
-- **Models**
-  - Ridge regression (Python)
-  - Random Forest (Python and R)
-- **Evaluation**
-  - `TimeSeriesSplit` in Python
-  - Expanding-window CV in R (simple implementation)
-  - Metrics: MAE, RMSE, MAPE (with a safe denominator)
+```bash
+jupyter notebook notebooks/01_energy_load_forecasting_ml.ipynb
+```
 
-## How to extend this project
+## Dataset Format
 
-- Add better baselines: seasonal naïve, ARIMA/ARIMAX
-- Add boosting: XGBoost / LightGBM with careful time-series validation
-- Add probabilistic forecasting (quantiles, prediction intervals)
-- Add backtesting by horizon (1h, 24h, 7d)
-- Add model monitoring (drift detection on temperature/load relationships)
+Minimum required columns:
 
-## Reference (paper being reviewed)
+- `datetime`
+- `load`
 
-The blog post is based on the paper linked in `Guidelines_Research_Paper_Review.txt`:
-- *Energy Load Forecasting with Machine Learning Models, Metrics and Future Directions* (ResearchGate link in the prompt)
+Optional exogenous columns:
+
+- `temp_c` and other weather or calendar drivers
+
+## Modeling Approach
+
+- Features: hour/day/month, cyclical encodings, lag terms, rolling windows
+- Models: linear baseline + tree-based baseline
+- Metrics: MAE, RMSE, MAPE
+- Validation: chronological CV and holdout splits
+
+## Outputs
+
+Generated outputs include model metrics and plots from scripts or notebook runs, typically written to local working directories or configured output paths.
+
+## Extensions
+
+- Add ARIMA/Prophet/boosting baselines
+- Add probabilistic forecasts and intervals
+- Add horizon-specific backtesting
+- Add drift monitoring and retraining logic
 
 ## License
 
