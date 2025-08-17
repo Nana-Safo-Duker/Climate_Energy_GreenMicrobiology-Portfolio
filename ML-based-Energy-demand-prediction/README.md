@@ -103,3 +103,4 @@ Script and notebook runs produce printed metrics and optional visual outputs for
 
 MIT License. See `LICENSE`.
 
+**Last Updated**: August 2025
