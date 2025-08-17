@@ -7,7 +7,7 @@ suppressPackageStartupMessages({
 # This script is a lightweight companion to the toy DRL environment.
 # It demonstrates how you might summarize/evaluate multiple experimental runs.
 
-set.seed(42)
+set.seed(505)
 
 out_dir <- file.path("outputs", "r")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)

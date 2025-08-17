@@ -8,7 +8,10 @@ import numpy as np
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
 
-from drl_energy_env import MultiEnergyToyEnv
+try:
+    from drl_energy_env import MultiEnergyToyEnv
+except ImportError:  # python -m src.train_sb3 from project root
+    from src.drl_energy_env import MultiEnergyToyEnv
 
 
 def evaluate(model: PPO, episodes: int = 5, seed: int = 0) -> dict[str, float]:
@@ -44,7 +47,7 @@ def evaluate(model: PPO, episodes: int = 5, seed: int = 0) -> dict[str, float]:
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--timesteps", type=int, default=50_000)
-    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--seed", type=int, default=505)
     p.add_argument("--outdir", type=str, default=str(Path("outputs") / "models"))
     args = p.parse_args()
 
