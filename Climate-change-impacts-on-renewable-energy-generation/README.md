@@ -100,3 +100,5 @@ Generated artifacts under `outputs/` include:
 ## License
 
 MIT License. See `LICENSE`.
+
+**Last Updated**: August 2025
