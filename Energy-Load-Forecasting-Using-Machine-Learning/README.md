@@ -111,3 +111,5 @@ Generated outputs include model metrics and plots from scripts or notebook runs,
 ## License
 
 MIT License. See `LICENSE`.
+
+**Last Updated**: August 2025
