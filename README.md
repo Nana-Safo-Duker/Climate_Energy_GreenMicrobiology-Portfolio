@@ -1,4 +1,4 @@
-﻿# AI/ML Climate, Energy & Green Microbiology Portfolio
+﻿# Climate, Energy & Green Microbiology Portfolio
 
 Multi-project laboratory of climate intelligence, energy systems analytics, and sustainability-focused machine learning by Nana Safo-Duker.
 Each folder is a self-contained workflow targeting a distinct forecasting, optimization, or transition-planning problem, from extreme-weather prediction to energy demand/load/price modeling and climate-driven renewable optimization.
