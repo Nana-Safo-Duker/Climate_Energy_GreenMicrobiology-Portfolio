@@ -46,7 +46,7 @@ def load_data(path: str = "data/raw/transition_scenarios.csv") -> pd.DataFrame:
     if file_path.exists():
         df = pd.read_csv(file_path)
     else:
-        np.random.seed(42)
+        np.random.seed(1010)
         rows = []
         scenarios = ["baseline", "accelerated_transition"]
         years = np.arange(2025, 2041)
@@ -149,6 +149,9 @@ def create_figures(df: pd.DataFrame) -> None:
     plt.ylabel("System Cost (Billion USD)")
     plt.tight_layout()
     plt.savefig("outputs/figure_cost_boxplot.png", dpi=300)
+    from pathlib import Path as _P
+    _P("assets").mkdir(parents=True, exist_ok=True)
+    # README overview uses committed assets/overview.png (regenerate via portfolio viz script if needed)
     plt.close()
 
 

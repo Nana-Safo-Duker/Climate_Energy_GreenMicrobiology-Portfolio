@@ -19,7 +19,7 @@ load_data <- function(path = "data/raw/transition_scenarios.csv") {
   if (file.exists(path)) {
     df <- readr::read_csv(path, show_col_types = FALSE)
   } else {
-    set.seed(42)
+    set.seed(1010)
     scenarios <- c("baseline", "accelerated_transition")
     years <- 2025:2040
     df <- expand.grid(scenario = scenarios, year = years) %>%
