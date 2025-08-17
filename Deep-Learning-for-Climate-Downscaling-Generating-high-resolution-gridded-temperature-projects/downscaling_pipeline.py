@@ -23,7 +23,7 @@ from torch.utils.data import DataLoader, Dataset
 
 @dataclass
 class Config:
-    seed: int = 42
+    seed: int = 404
     epochs: int = 20
     batch_size: int = 16
     learning_rate: float = 1e-3
@@ -141,7 +141,9 @@ def evaluate_loss(model: nn.Module, loader: DataLoader, criterion: nn.Module, de
 
 
 @torch.no_grad()
-def evaluate_metrics(model: nn.Module, loader: DataLoader, device: torch.device) -> Tuple[float, float, float]:
+def evaluate_metrics(
+    model: nn.Module, loader: DataLoader, device: torch.device
+) -> Tuple[float, float, float, np.ndarray, np.ndarray]:
     model.eval()
     y_true_all = []
     y_pred_all = []
@@ -157,12 +159,13 @@ def evaluate_metrics(model: nn.Module, loader: DataLoader, device: torch.device)
     mae = mean_absolute_error(y_true, y_pred)
     rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     bias = float(np.mean(y_pred - y_true))
-    return float(mae), float(rmse), bias
+    return float(mae), float(rmse), bias, y_true, y_pred
 
 
 def main(config: Config) -> None:
     set_seed(config.seed)
     config.output_dir.mkdir(parents=True, exist_ok=True)
+    Path("assets").mkdir(parents=True, exist_ok=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
@@ -196,7 +199,13 @@ def main(config: Config) -> None:
         print(f"Epoch {epoch:03d} | train_loss={train_loss:.4f} | val_loss={val_loss:.4f}")
 
     model.load_state_dict(torch.load(best_path, map_location=device))
-    mae, rmse, bias = evaluate_metrics(model, test_loader, device)
+    mae, rmse, bias, y_true, y_pred = evaluate_metrics(model, test_loader, device)
+
+    pred_path = config.output_dir / "predictions.csv"
+    with pred_path.open("w", encoding="utf-8") as f:
+        f.write("y_true,y_pred\n")
+        for yt, yp in zip(y_true, y_pred):
+            f.write(f"{yt},{yp}\n")
 
     report_path = config.output_dir / "metrics.txt"
     report = (
@@ -209,6 +218,7 @@ def main(config: Config) -> None:
     print(report)
     print(f"Saved best model to: {best_path}")
     print(f"Saved metrics report to: {report_path}")
+    print(f"Saved predictions to: {pred_path}")
 
 
 if __name__ == "__main__":

@@ -25,7 +25,7 @@ if (!dir.exists(output_dir)) {
 if (!file.exists(input_path)) {
   message("Input file not found: ", input_path)
   message("Creating a synthetic example dataset at outputs/predictions.csv")
-  set.seed(42)
+  set.seed(404)
   y_true <- rnorm(8000, mean = 28, sd = 4)
   y_pred <- y_true + rnorm(8000, mean = 0.15, sd = 1.1)
   demo <- data.frame(y_true = y_true, y_pred = y_pred)
