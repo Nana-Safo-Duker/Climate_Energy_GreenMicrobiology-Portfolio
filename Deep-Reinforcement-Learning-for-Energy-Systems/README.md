@@ -106,4 +106,4 @@ Typical local artifacts:
 
 MIT License. See `LICENSE`.
 
-
+**Last Updated**: August 2025
