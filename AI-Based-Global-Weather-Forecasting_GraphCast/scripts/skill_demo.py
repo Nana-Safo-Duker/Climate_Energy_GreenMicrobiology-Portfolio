@@ -12,7 +12,7 @@ from scipy import stats
 
 @dataclass(frozen=True)
 class Config:
-    seed: int = 7
+    seed: int = 101
     n_samples: int = 200
     lead_hours: tuple[int, ...] = (6, 12, 24, 48, 72, 96, 120, 144, 168, 192, 216, 240)
 
@@ -99,6 +99,10 @@ def plot_skill(summary: pd.DataFrame, out_png: Path) -> None:
     plt.legend()
     plt.tight_layout()
     plt.savefig(out_png, dpi=160)
+    from pathlib import Path as _P
+    _assets = _P(__file__).resolve().parents[1] / "assets"
+    _assets.mkdir(parents=True, exist_ok=True)
+    plt.savefig(_assets / "overview.png", dpi=150)
     plt.close()
 
 

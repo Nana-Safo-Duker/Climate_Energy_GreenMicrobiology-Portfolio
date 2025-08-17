@@ -41,3 +41,8 @@ desktop.ini
 Guidelines_Research_Paper_Review.txt
 GraphCast_Research_Paper_Review.md
 GrapgCast_Research_Paper_Review.md
+
+!assets/
+!assets/*.png
+!assets/**/*.png
+
