@@ -30,7 +30,7 @@ def _safe_mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 def make_synthetic_hourly_dataset(
     start: str = "2024-01-01",
     periods: int = 24 * 180,
-    seed: int = 7,
+    seed: int = 606,
 ) -> pd.DataFrame:
     """
     Create a realistic-ish hourly load dataset with weather + calendar effects.
@@ -97,7 +97,7 @@ def add_time_features(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def train_and_evaluate(df: pd.DataFrame, n_splits: int = 5, seed: int = 7) -> list[ForecastResult]:
+def train_and_evaluate(df: pd.DataFrame, n_splits: int = 5, seed: int = 606) -> list[ForecastResult]:
     df = add_time_features(df)
 
     feature_cols = [
