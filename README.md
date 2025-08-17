@@ -41,7 +41,9 @@ Portfolio-level figures in `assets/` summarize themes across all ten climate/ene
 
 ![Portfolio cross-project visual overview](assets/portfolio_overview.png)
 
-### Project theme map
+### Project theme map (climate & energy only)
+
+Constellation map of the **10 climate/energy folders** (weather AI, energy forecasting, systems/transition). This figure is unique to this repository — not shared with the biomedical or epidemiology portfolios:
 
 ![Portfolio project theme map](assets/project_theme_map.png)
 
