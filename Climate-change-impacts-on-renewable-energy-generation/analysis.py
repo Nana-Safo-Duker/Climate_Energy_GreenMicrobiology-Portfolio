@@ -134,6 +134,8 @@ def plot_percent_change(df: pd.DataFrame, output_dir: Path) -> Path:
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches="tight")
+    assets = Path("assets"); assets.mkdir(parents=True, exist_ok=True)
+    plt.savefig(assets / "overview.png", dpi=150, bbox_inches="tight")
     plt.close()
     return output_path
 
