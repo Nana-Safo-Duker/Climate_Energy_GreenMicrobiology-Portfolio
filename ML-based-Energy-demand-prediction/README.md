@@ -1,91 +1,105 @@
-# Machine learning based energy demand prediction (reproducible repo)
+# ML-Based Energy Demand Prediction
 
-This folder contains:
+A comprehensive machine learning project for predicting energy demand with reproducible Python, R, and notebook workflows. It supports synthetic startup data and provides a straightforward path to real utility-scale time-series forecasting.
 
-- a **reproducible Python + R workflow** demonstrating time-series-safe feature engineering and evaluation for energy-demand prediction
-- retained placeholder files for excluded guideline/blog content
+## Table of Contents
 
-## Contents
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Data Requirements
+- Models and Evaluation
+- Outputs
+- License
 
-- `Machine_Learning_Based_Energy_Demand_Prediction_Blog_Post.md`: retained file, content excluded
-- `Guidelines_Research_Paper_Review.txt`: retained file, content excluded
-- `Guidelines_Research_Paper_Review.md`: retained file, content excluded
-- `src/energy_demand_prediction.py`: runnable Python demo (prints MAE/RMSE)
-- `notebooks/energy_demand_prediction.ipynb`: detailed notebook workflow
-- `r/energy_demand_prediction.R`: runnable R demo (prints MAE/RMSE + plots)
-- `.gitignore`, `.gitattributes`, `LICENSE`, `requirements.txt`: repository scaffolding
+## Overview
 
-## Quickstart (Python)
+This repository is designed to demonstrate practical energy demand forecasting under time-series constraints. It includes baseline model workflows, reproducible preprocessing patterns, and dual-language implementations for easier cross-validation of results.
 
-### 1) Create and activate a virtual environment (recommended)
+## Features
 
-PowerShell:
+- Python and R demand prediction scripts
+- Jupyter notebook for interactive analysis
+- Chronological train/test strategy to avoid leakage
+- Lag and rolling feature engineering patterns
+- Modular setup for replacing synthetic data with real data
+
+## Project Structure
+
+```text
+.
+├── notebooks/
+│   └── energy_demand_prediction.ipynb
+├── r/
+│   └── energy_demand_prediction.R
+├── src/
+│   └── energy_demand_prediction.py
+├── Machine_Learning_Based_Energy_Demand_Prediction_Blog_Post.md
+├── Guidelines_Research_Paper_Review.txt
+├── Guidelines_Research_Paper_Review.md
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
+```
+
+## Installation
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-```
-
-### 2) Install dependencies
-
-```bash
 python -m pip install -r requirements.txt
 ```
 
-### 3) Run the script
-
-```bash
-python .\src\energy_demand_prediction.py --model ridge
-python .\src\energy_demand_prediction.py --model hgb
-```
-
-What you’ll see:
-
-- train/test sizes (time split)
-- MAE and RMSE in MW
-
-## Quickstart (Notebook)
-
-After installing dependencies:
-
-```bash
-jupyter notebook
-```
-
-Then open `notebooks/energy_demand_prediction.ipynb`.
-
-## Quickstart (R)
-
-### 1) Confirm R is available
-
-```bash
-Rscript --version
-```
-
-### 2) Install R packages (one-time)
-
-In an R console:
+R setup:
 
 ```r
 install.packages(c("ggplot2","dplyr","lubridate","tidyr","zoo"))
 ```
 
-### 3) Run the R script
+## Usage
+
+### Python
 
 ```bash
-Rscript .\r\energy_demand_prediction.R
+python src/energy_demand_prediction.py --model ridge
+python src/energy_demand_prediction.py --model hgb
 ```
 
-## Notes on data and reproducibility
+### R
 
-- The Python and R workflows use a **synthetic but realistic hourly dataset** so the repo runs without credentials or private utility data.
-- The workflow is designed to be **time-series safe**:
-  - lag and rolling features are computed using `shift()/lag()` so they only use the past
-  - the train/test split is chronological (no shuffling)
+```bash
+Rscript r/energy_demand_prediction.R
+```
 
-To use a real dataset, replace the synthetic data generator with your dataset loader and keep the same feature and splitting principles.
+### Notebook
+
+```bash
+jupyter notebook notebooks/energy_demand_prediction.ipynb
+```
+
+## Data Requirements
+
+Default workflows generate synthetic hourly data. For real deployment, replace data loading with your dataset and preserve:
+
+- chronological splitting
+- lag/rolling feature computation from past values only
+- explicit handling of seasonality and missing periods
+
+## Models and Evaluation
+
+- Baseline linear and tree-based demand models
+- Metrics centered on forecasting error (e.g., MAE, RMSE)
+- Time-aware evaluation for realistic performance estimates
+
+## Outputs
+
+Script and notebook runs produce printed metrics and optional visual outputs for model comparison and reporting.
 
 ## License
 
-This project is licensed under the MIT License (see `LICENSE`).
+MIT License. See `LICENSE`.
 
