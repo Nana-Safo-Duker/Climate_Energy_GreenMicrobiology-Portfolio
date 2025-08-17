@@ -8,6 +8,7 @@ This README provides the cross-project narrative: structure, shared tooling, rep
 ## Table of Contents
 - [About](#about)
 - [Portfolio Overview](#portfolio-overview)
+- [Visualizations](#visualizations)
 - [Repository Layout](#repository-layout)
 - [Shared Setup Workflow](#shared-setup-workflow)
 - [Workflow Blueprint](#workflow-blueprint)
@@ -22,18 +23,36 @@ This README provides the cross-project narrative: structure, shared tooling, rep
 ## About
 **Description:** AI/ML portfolio spanning climate prediction, energy forecasting, renewable optimization, and sustainable transition modeling.
 **Website:** https://nana-safo-duker.github.io/
-**Topics:** climate-ai, energy-ml, renewable-energy, weather-forecasting, load-forecasting, electricity-pricing, sustainability, graph-neural-networks, forecasting, green-microbiology.
+**Topics:** climate-ai, energy-ml, renewable-energy, weather-forecasting, load-forecasting, electricity-pricing, sustainability, graph-neural-networks, forecasting.
 
 ## Portfolio Overview
 - **Domains represented:** climate forecasting, extreme weather risk prediction, electricity price forecasting, load/demand forecasting, renewable resource optimization, transition scenario modeling.
 - **Core methods:** tree ensembles, time-series forecasting, deep learning, graph-based weather models, probabilistic/statistical evaluation, explainable ML diagnostics.
 - **Languages and runtimes:** Python, Jupyter Notebooks, selected R workflows where applicable.
 - **Deliverables:** reproducible notebooks, scripts, trained model artifacts, diagnostic plots, and project-level documentation.
-- **Operational model:** 10 standalone project folders, each independently runnable and reviewable.
+- **Operational model:** 10 standalone project folders for climate and energy analytics (the portfolio title retains “Green Microbiology” for branding continuity; there is no separate microbiology project folder in this repository).
+
+
+## Visualizations
+
+Portfolio-level figures in `assets/` summarize themes across all ten climate/energy projects. Each project folder also includes its own `assets/overview.png`.
+
+### Cross-project analytical overview
+
+![Portfolio cross-project visual overview](assets/portfolio_overview.png)
+
+### Project theme map
+
+![Portfolio project theme map](assets/project_theme_map.png)
+
+> Root figures are illustrative summaries. Open any project folder for runnable pipelines and project-specific plots.
 
 ## Repository Layout
 ```text
 Climate_Energy_GreenMicrobiology-Portfolio/
+├── assets/                                      # Portfolio-level visualizations
+│   ├── portfolio_overview.png
+│   └── project_theme_map.png
 ├── AI-Based-Global-Weather-Forecasting_GraphCast/
 ├── Climate-Data-for-Renewable-Energy-Optimization/
 ├── Climate-change-impacts-on-renewable-energy-generation/
@@ -51,7 +70,7 @@ Each project typically includes:
 - `data/` or dataset placeholders / ingestion scripts
 - `notebooks/` for EDA + experiment walkthroughs
 - `src/` or `scripts/` for modular pipelines
-- `results/`, `figures/`, or model checkpoints
+- `results/`, `figures/`, `assets/` (README overview figure), or model checkpoints
 - Project-specific README and setup notes
 
 ## Shared Setup Workflow
