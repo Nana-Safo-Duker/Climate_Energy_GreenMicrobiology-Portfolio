@@ -39,7 +39,7 @@ class Paths:
         return self.data_dir / "synthetic_renewable_timeseries.csv"
 
 
-def generate_synthetic_dataset(n_days: int = 180, freq: str = "h", seed: int = 7) -> pd.DataFrame:
+def generate_synthetic_dataset(n_days: int = 180, freq: str = "h", seed: int = 303) -> pd.DataFrame:
     """
     Create a realistic-ish renewable power time series with meteorological drivers.
     This keeps the repo runnable without external data.
@@ -261,7 +261,7 @@ def main() -> int:
     parser.add_argument("--horizon-hours", type=int, default=1, help="Forecast horizon in hours.")
     parser.add_argument("--test-size", type=int, default=7 * 24, help="Test block size in rows (default: 7 days).")
     parser.add_argument("--splits", type=int, default=6, help="Number of rolling test blocks.")
-    parser.add_argument("--seed", type=int, default=7, help="Random seed for synthetic data.")
+    parser.add_argument("--seed", type=int, default=303, help="Random seed for synthetic data.")
     parser.add_argument(
         "--fast",
         action="store_true",

@@ -37,4 +37,10 @@ reports/**
 !reports/.gitkeep
 !reports/figures/
 !reports/figures/.gitkeep
+!reports/figures/*.png
+
+# Committed README visualization
+!assets/
+!assets/*.png
+!assets/**/*.png
 
