@@ -126,4 +126,4 @@ Typical generated artifacts:
 
 MIT License. See `LICENSE`.
 
-**Last Updated**: August 2025
+**Last Updated**: July 2025
