@@ -108,3 +108,5 @@ To move from synthetic demonstration to production-style analysis:
 ## License
 
 MIT License. See `LICENSE`.
+
+**Last Updated**: August 2025
