@@ -1,86 +1,110 @@
-## AI-Based Global Weather Forecasting (GraphCast) — Starter Repo
+# AI-Based Global Weather Forecasting (GraphCast)
 
-This repository is a **lightweight, reproducible starter** for studying and reviewing **GraphCast-style** global weather forecasting papers and for practicing the *evaluation workflow* (skill vs lead time, basic significance testing, plotting).
+A comprehensive, reproducible starter project for GraphCast-style global weather forecasting evaluation. The project focuses on end-to-end skill analysis by lead time, lightweight significance testing, and publication-ready plotting in both Python and R.
 
-It is intentionally **data-light**: the included notebook/scripts use **synthetic data** so the repo stays small and runs anywhere. You can later replace the toy generator with **ERA5 / reanalysis + forecast outputs** when you’re ready.
+## Table of Contents
 
-### What’s included
+- Overview
+- Features
+- Project Structure
+- Installation
+- Usage
+- Outputs
+- Adapting to Real GraphCast Workflows
+- Best Practices
+- License
 
-- **`notebooks/toy_graphcast_skill_demo.ipynb`**: end-to-end demo (generate → summarize → t-test → plot).
-- **`scripts/skill_demo.py`**: same workflow as a CLI script.
-- **`scripts/skill_demo.R`**: same workflow in R.
-- **Repo hygiene**: `.gitignore`, `.gitattributes`, `LICENSE`, `requirements.txt`.
+## Overview
 
-### Local-only writing artifacts (not committed)
+This project is designed for paper reviews, coursework, and prototyping of global weather forecast evaluation workflows. It intentionally uses synthetic data so anyone can run the full pipeline locally without external datasets, then swap in ERA5/reanalysis and model forecast data later.
 
-These files are kept locally but **excluded from git commits/push** by `.gitignore`:
+## Features
 
-- `Guidelines_Research_Paper_Review.txt`
-- `GraphCast_Research_Paper_Review.md`
+- Dual-language implementation (`Python` and `R`) for comparable analysis workflows
+- End-to-end skill pipeline (data generation -> summary -> t-test -> plotting)
+- Notebook-first learning path plus script-first reproducible CLI runs
+- Lightweight by default (no large data dependency to get started)
+- Clear upgrade path to real GraphCast evaluation pipelines
 
-### Quickstart (Python)
+## Project Structure
 
-- **Create a virtual environment**
+```text
+.
+├── notebooks/
+│   └── toy_graphcast_skill_demo.ipynb
+├── scripts/
+│   ├── skill_demo.py
+│   └── skill_demo.R
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
+```
+
+## Installation
+
+### Python setup
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\activate
-```
-
-- **Install dependencies**
-
-```bash
 pip install -r requirements.txt
 ```
 
-- **Run the demo script**
+### R setup
+
+Install common packages used by the R script:
+
+```r
+install.packages(c("dplyr", "ggplot2"))
+```
+
+## Usage
+
+### Python script
 
 ```bash
 python scripts/skill_demo.py --outdir outputs
 ```
 
-This writes:
-- `outputs/toy_skill_curve.png`
-- `outputs/toy_skill_summary.csv`
-- `outputs/toy_skill_ttests.csv`
-
-### Quickstart (R)
-
-The R script expects common packages:
-- `ggplot2`
-- `dplyr`
-
-Run:
+### R script
 
 ```r
 source("scripts/skill_demo.R")
 ```
 
-### How to adapt this to real GraphCast evaluation
+### Notebook
 
-Replace the synthetic error generator with a pipeline that:
-
-- Loads **truth** fields (e.g., ERA5) and **model forecasts** at the same valid times
-- Computes per-lead metrics (MAE/RMSE, ACC, region-specific scores)
-- (Optional) computes event-based metrics for extremes (threshold skill scores, reliability, etc.)
-- Produces the same “skill vs lead” plots and tables
-
-### Repo structure
-
-```
-AI-Based Global Weather Forecasting_GraphCast/
-  notebooks/
-    toy_graphcast_skill_demo.ipynb
-  scripts/
-    skill_demo.py
-    skill_demo.R
-  .gitattributes
-  .gitignore
-  LICENSE
-  requirements.txt
-  README.md
+```bash
+jupyter notebook notebooks/toy_graphcast_skill_demo.ipynb
 ```
 
-### License
+## Outputs
+
+Typical outputs written under `outputs/`:
+
+- `toy_skill_curve.png`
+- `toy_skill_summary.csv`
+- `toy_skill_ttests.csv`
+
+## Adapting to Real GraphCast Workflows
+
+To move from synthetic demonstration to production-style analysis:
+
+1. Replace synthetic generator with truth + forecast ingestion.
+2. Align data by valid time, variable, and grid definition.
+3. Compute per-lead metrics (MAE, RMSE, ACC, regional skill).
+4. Add event-oriented metrics for extremes (optional).
+5. Keep identical plotting and reporting interfaces for comparability.
+
+## Best Practices
+
+- Use time-aware validation and avoid leakage across lead times.
+- Report uncertainty and spread, not only average skill.
+- Preserve reproducibility with fixed seeds and explicit configs.
+- Track metric definitions exactly when comparing against paper results.
+
+## License
 
 MIT License. See `LICENSE`.
