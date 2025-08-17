@@ -28,6 +28,9 @@ results/
 
 # Plots / exports
 *.png
+!assets/
+!assets/*.png
+!assets/**/*.png
 *.jpg
 *.jpeg
 *.svg

@@ -21,10 +21,10 @@ UCI_APPLIANCES_URL = (
 @dataclass(frozen=True)
 class SplitConfig:
     train_frac: float = 0.8
-    random_state: int = 42
+    random_state: int = 808
 
 
-def load_or_make_demo_data(n_hours: int = 24 * 365, seed: int = 7) -> pd.DataFrame:
+def load_or_make_demo_data(n_hours: int = 24 * 365, seed: int = 808) -> pd.DataFrame:
     """
     Create a realistic synthetic hourly demand dataset.
 
@@ -87,10 +87,10 @@ def build_model(model_name: str, numeric_cols: list[str], categorical_cols: list
     )
 
     if model_name == "ridge":
-        reg = Ridge(alpha=1.0, random_state=42)
+        reg = Ridge(alpha=1.0, random_state=808)
     elif model_name == "hgb":
         reg = HistGradientBoostingRegressor(
-            random_state=42,
+            random_state=808,
             max_depth=6,
             learning_rate=0.08,
         )
