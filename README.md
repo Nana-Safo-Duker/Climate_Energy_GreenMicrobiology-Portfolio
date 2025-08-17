@@ -30,12 +30,12 @@ This README provides the cross-project narrative: structure, shared tooling, rep
 - **Core methods:** tree ensembles, time-series forecasting, deep learning, graph-based weather models, probabilistic/statistical evaluation, explainable ML diagnostics.
 - **Languages and runtimes:** Python, Jupyter Notebooks, selected R workflows where applicable.
 - **Deliverables:** reproducible notebooks, scripts, trained model artifacts, diagnostic plots, and project-level documentation.
-- **Operational model:** 10 standalone project folders for climate and energy analytics (the portfolio title retains “Green Microbiology” for branding continuity; there is no separate microbiology project folder in this repository).
+- **Operational model:** 11 standalone project folders for climate and energy analytics (the portfolio title retains “Green Microbiology” for branding continuity; there is no separate microbiology project folder in this repository).
 
 
 ## Visualizations
 
-Portfolio-level figures in `assets/` summarize themes across all ten climate/energy projects. Each project folder also includes its own `assets/overview.png`.
+Portfolio-level figures in `assets/` summarize themes across all eleven climate/energy projects. Each project folder also includes its own `assets/overview.png`.
 
 ### Cross-project analytical overview
 
@@ -43,7 +43,7 @@ Portfolio-level figures in `assets/` summarize themes across all ten climate/ene
 
 ### Project theme map (climate & energy only)
 
-Constellation map of the **10 climate/energy folders** (weather AI, energy forecasting, systems/transition). This figure is unique to this repository — not shared with the biomedical or epidemiology portfolios:
+Constellation map of the **11 climate/energy folders** (weather AI, energy forecasting, systems/transition). This figure is unique to this repository — not shared with the biomedical or epidemiology portfolios:
 
 ![Portfolio project theme map](assets/project_theme_map.png)
 
@@ -65,6 +65,7 @@ Climate_Energy_GreenMicrobiology-Portfolio/
 ├── ML-based-Energy-demand-prediction/
 ├── ML-for-Extreme-Weather-Event-Prediction/
 ├── Modelling-for-Sustainable-Energy-Transition/
+├── Weather Forecasting with Diffusion models/
 └── README.md
 ```
 
@@ -137,6 +138,10 @@ Assesses how climate-change signals affect renewable generation potential over t
 ### 10) ML-based-Energy-demand-prediction
 Machine-learning pipelines for aggregate or segment-level energy demand prediction.
 **Use cases:** utility forecasting, demand-response design, infrastructure planning.
+
+### 11) Weather Forecasting with Diffusion models
+Continuous ensemble weather forecasting workflows inspired by diffusion-based probabilistic MLWP, including ARCI-style lead-time sampling and verification diagnostics.
+**Use cases:** high-temporal-resolution ensemble prediction, uncertainty quantification, renewable-energy weather risk support.
 
 ## Data Sources and Governance
 - Use only datasets with clear license terms and permitted reuse.
