@@ -151,7 +151,7 @@ Machine-learning pipelines for aggregate or segment-level energy demand predicti
 
 ## Contact
 For collaboration, consulting, or demo requests, open an issue or connect via:
-https://nana-safo-duker.github.io/
+https://nana-safo-duker.github.io
 
 ---
 
