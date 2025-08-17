@@ -156,3 +156,5 @@ https://nana-safo-duker.github.io/
 ---
 
 Also see related repositories under Nana Safo-Duker's GitHub profile for adjacent sustainability and analytics workflows.
+
+**Last Updated**: August 2025
