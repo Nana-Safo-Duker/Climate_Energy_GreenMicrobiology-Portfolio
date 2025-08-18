@@ -1,0 +1,28 @@
+* text=auto eol=lf
+
+*.ipynb text eol=lf
+*.py text eol=lf
+*.R text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.csv text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.nc binary
+*.h5 binary
+*.hdf5 binary
+*.grib binary
+*.grb binary
+*.npz binary
+*.ckpt binary
+*.pt binary
+*.pth binary
