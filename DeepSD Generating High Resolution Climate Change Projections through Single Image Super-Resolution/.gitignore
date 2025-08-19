@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / outputs / models (keep folder placeholders)
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep
+models/*
+!models/.gitkeep
+*.nc
+*.h5
+*.hdf5
+*.parquet
+*.grib
+*.grb
+*.ckpt
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.joblib
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Local writing artifacts (keep locally; do not commit/push)
+Guidelines_Research_Paper_Review.txt
+Research_Paper_Review_Blog.md
+Screenshot*.png
+
+# Keep demo figures
+!assets/
+!assets/*.png
+!assets/**/*.png
