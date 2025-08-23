@@ -30,12 +30,12 @@ This README provides the cross-project narrative: structure, shared tooling, rep
 - **Core methods:** tree ensembles, time-series forecasting, deep learning, graph-based weather models, probabilistic/statistical evaluation, explainable ML diagnostics.
 - **Languages and runtimes:** Python, Jupyter Notebooks, selected R workflows where applicable.
 - **Deliverables:** reproducible notebooks, scripts, trained model artifacts, diagnostic plots, and project-level documentation.
-- **Operational model:** 11 standalone project folders for climate and energy analytics (the portfolio title retains “Green Microbiology” for branding continuity; there is no separate microbiology project folder in this repository).
+- **Operational model:** 12 standalone project folders for climate and energy analytics (the portfolio title retains “Green Microbiology” for branding continuity; there is no separate microbiology project folder in this repository).
 
 
 ## Visualizations
 
-Portfolio-level figures in `assets/` summarize themes across all eleven climate/energy projects. Each project folder also includes its own `assets/overview.png`.
+Portfolio-level figures in `assets/` summarize themes across all twelve climate/energy projects. Each project folder also includes its own `assets/overview.png`.
 
 ### Cross-project analytical overview
 
@@ -43,7 +43,7 @@ Portfolio-level figures in `assets/` summarize themes across all eleven climate/
 
 ### Project theme map (climate & energy only)
 
-Constellation map of the **11 climate/energy folders** (weather AI, energy forecasting, systems/transition). This figure is unique to this repository — not shared with the biomedical or epidemiology portfolios:
+Constellation map of the **12 climate/energy folders** (weather AI, energy forecasting, systems/transition). This figure is unique to this repository — not shared with the biomedical or epidemiology portfolios:
 
 ![Portfolio project theme map](assets/project_theme_map.png)
 
@@ -66,6 +66,7 @@ Climate_Energy_GreenMicrobiology-Portfolio/
 ├── ML-for-Extreme-Weather-Event-Prediction/
 ├── Modelling-for-Sustainable-Energy-Transition/
 ├── Weather Forecasting with Diffusion models/
+├── DeepSD Generating High Resolution Climate Change Projections through Single Image Super-Resolution/
 └── README.md
 ```
 
@@ -142,6 +143,10 @@ Machine-learning pipelines for aggregate or segment-level energy demand predicti
 ### 11) Weather Forecasting with Diffusion models
 Continuous ensemble weather forecasting workflows inspired by diffusion-based probabilistic MLWP, including ARCI-style lead-time sampling and verification diagnostics.
 **Use cases:** high-temporal-resolution ensemble prediction, uncertainty quantification, renewable-energy weather risk support.
+
+### 12) DeepSD Generating High Resolution Climate Change Projections through Single Image Super-Resolution
+Stacked SRCNN super-resolution for statistical climate downscaling, mapping coarse precipitation fields to high-resolution grids with topographic guidance.
+**Use cases:** local climate-risk products, extreme precipitation downscaling, ensemble ESM post-processing for adaptation planning.
 
 ## Data Sources and Governance
 - Use only datasets with clear license terms and permitted reuse.
