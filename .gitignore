@@ -2,42 +2,48 @@
 __pycache__/
 *.py[cod]
 *.pyd
-*.so
+*.pyo
 .Python
 build/
 dist/
 *.egg-info/
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
+.eggs/
 .venv/
 venv/
 ENV/
-env/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
 
 # Jupyter
-.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
 
 # Data / outputs
 data/
 outputs/
-*.nc
-*.h5
-*.hdf5
+models/
+*.csv
 *.parquet
-
-# OS / editor
-.DS_Store
-Thumbs.db
-desktop.ini
-.vscode/
+*.feather
+*.pkl
+*.joblib
+*.png
+*.pdf
 
 # R
 .Rhistory
 .RData
 .Rproj.user/
 
-# Local writing artifacts (keep locally; do not commit)
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Assignment files to keep locally (do not push)
 Guidelines_Research_Paper_Review.txt
-GraphCast_Research_Paper_Review.md
-GrapgCast_Research_Paper_Review.md
+Energy_Load_Forecasting_Scientific_Blog_Post.md
+Energy_Load_Forcasting_Scientific_Blog_Post.md
+
