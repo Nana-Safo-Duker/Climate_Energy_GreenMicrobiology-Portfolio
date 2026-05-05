@@ -1,5 +1,13 @@
-# Normalize line endings and treat notebooks sanely
-* text=auto eol=lf
+# Normalize line endings for cross-platform collaboration
+* text=auto
 
-*.ipynb -text
+# Treat notebooks as generated/large diffs; keep as text for review
+*.ipynb text
+
+# Common binary formats
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
 
