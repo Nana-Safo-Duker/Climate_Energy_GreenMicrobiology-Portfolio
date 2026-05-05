@@ -1,7 +1,0 @@
-# Python dependencies for analysis.py and the Jupyter notebook
-# Tested with Python 3.11
-matplotlib==3.10.9
-seaborn==0.13.2
-pandas==2.3.3
-numpy==2.2.6
-notebook==7.5.6
