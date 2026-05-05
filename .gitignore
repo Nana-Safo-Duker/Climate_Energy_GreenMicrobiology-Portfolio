@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / outputs
+data/
+outputs/
+*.nc
+*.h5
+*.hdf5
+*.parquet
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Local writing artifacts (keep locally; do not commit)
+Guidelines_Research_Paper_Review.txt
+GraphCast_Research_Paper_Review.md
+GrapgCast_Research_Paper_Review.md
