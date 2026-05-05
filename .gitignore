@@ -1,0 +1,29 @@
+.DS_Store
+Thumbs.db
+
+# Local-only / assignment guidance files (keep, but never commit)
+Guidelines_Research_Paper_Review.txt
+DR_Learning_Energy_Systems_blog_post.md
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Outputs (regenerate)
+outputs/
+
