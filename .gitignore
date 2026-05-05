@@ -2,48 +2,37 @@
 __pycache__/
 *.py[cod]
 *.pyd
-*.pyo
-.Python
-build/
-dist/
-*.egg-info/
-.eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .venv/
 venv/
 ENV/
-.env
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.ipynb_checkpoints/
 
 # Jupyter
-notebooks/.ipynb_checkpoints/
-
-# Data / outputs
-data/
-outputs/
-models/
-*.csv
-*.parquet
-*.feather
-*.pkl
-*.joblib
-*.png
-*.pdf
+.ipynb_checkpoints/
 
 # R
 .Rhistory
 .RData
 .Rproj.user/
 
-# OS / editors
+# Local caches
+.mypy_cache/
+
+# OS / editor
 .DS_Store
 Thumbs.db
 .vscode/
 
-# Assignment files to keep locally (do not push)
+# Keep locally, do not stage/push
 Guidelines_Research_Paper_Review.txt
-Energy_Load_Forecasting_Scientific_Blog_Post.md
+blog_post_research_paper_review.md
 Energy_Load_Forcasting_Scientific_Blog_Post.md
+
+# Data & outputs (keep structure, not contents)
+data/**
+!data/.gitkeep
+reports/**
+!reports/.gitkeep
 
