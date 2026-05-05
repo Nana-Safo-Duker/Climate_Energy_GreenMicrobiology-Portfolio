@@ -3,7 +3,11 @@ pandas
 scikit-learn
 matplotlib
 seaborn
-statsmodels
 jupyter
-ipykernel
-
+notebook
+statsmodels
+scipy
+xgboost
+lightgbm
+catboost
+plotly
