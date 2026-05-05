@@ -1,8 +1,0 @@
-# Normalize text files and keep notebooks stable
-* text=auto eol=lf
-
-*.ipynb text eol=lf
-*.csv text eol=lf
-*.md text eol=lf
-*.txt text eol=lf
-
