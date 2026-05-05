@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deep Learning for Climate Downscaling (India CMIP6)
 
 This repository provides a structured, reproducible starting point for reviewing and prototyping deep-learning-based climate downscaling workflows, inspired by:
@@ -152,3 +153,6 @@ If you use this repository scaffold for coursework or reproducible experiments, 
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
+=======
+# Deep-Learning-for-Climate-Downscaling-Generating-high-resolution-gridded-temperature-projects
+>>>>>>> bebc7cc32f32640c79f8625758a7ed491b311c1d
