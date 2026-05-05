@@ -60,4 +60,5 @@ data/processed/*
 
 # Local reference docs not to push
 Guidelines_Research_Paper_Review.txt
+Guidelines_Research_Paper_Review.md
 Scientific_Blog_Post.md
