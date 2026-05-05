@@ -1,13 +1,30 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.pyd
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
 .venv/
 venv/
 ENV/
+env/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -17,24 +34,30 @@ ENV/
 .RData
 .Rproj.user/
 
-# Local caches
+# IDE / Editor
+.idea/
+.vscode/
 .mypy_cache/
+*.swp
+*.swo
 
-# OS / editor
+# OS files
 .DS_Store
 Thumbs.db
-.vscode/
 
-# Keep locally, do not stage/push
+# Logs and local outputs
+*.log
+logs/
+outputs/
+models/
+artifacts/
+
+# Data files (keep placeholders with .gitkeep)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Local reference docs not to push
 Guidelines_Research_Paper_Review.txt
-blog_post_research_paper_review.md
-Energy_Load_Forcasting_Scientific_Blog_Post.md
-
-# Data & outputs (keep structure, not contents)
-data/**
-!data/.gitkeep
-reports/**
-!reports/.gitkeep
-!reports/figures/
-!reports/figures/.gitkeep
-
+Scientific_Blog_Post.md
