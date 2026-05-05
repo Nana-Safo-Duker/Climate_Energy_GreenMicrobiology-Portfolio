@@ -35,4 +35,5 @@ data/**
 !data/.gitkeep
 reports/**
 !reports/.gitkeep
+!reports/figures/.gitkeep
 
