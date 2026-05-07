@@ -1,0 +1,11 @@
+# Ensure consistent text handling across OSes
+* text=auto eol=lf
+
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+*.ipynb text eol=lf
+*.R text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
