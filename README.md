@@ -153,7 +153,7 @@ Then:
 **Use cases:** grid balancing support, dispatch prototyping, capacity-planning exercises.
 
 ### 6) AI-Based-Global-Weather-Forecasting_GraphCast
-**Problem statement:** GraphCast-*inspired* global weather forecast **evaluation** (skill vs lead time)—not full GraphCast training.  
+**Problem statement:** GraphCast-*inspired* global weather forecast **evaluation** (skill vs lead time) not full GraphCast training.  
 **Highlights:** synthetic skill curves; MAE/RMSE/ACC path; significance bands; Python + R + notebook; upgrade path to ERA5.  
 **Use cases:** large-scale forecast evaluation prototyping, paper-review coursework, atmospheric ML benchmarking scaffolds.
 
