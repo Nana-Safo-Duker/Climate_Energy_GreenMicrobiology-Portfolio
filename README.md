@@ -47,7 +47,7 @@ Six panels spanning weather skill vs lead time, climate→renewables percent cha
 
 ### Project theme map (climate & energy only)
 
-Thematic constellation of climate & energy AI across three lanes—**Climate & Weather AI**, **Energy Forecasting**, and **Systems & Transition**. This figure is unique to this repository—not shared with the biomedical or epidemiology portfolios. The repository holds **13** project folders; Diffusion ensembles, DeepSD super-resolution, and ClimaX foundation-model demos extend the weather/climate foundation lane beyond the core constellation graphic:
+Constellation map of the **13 climate/energy folders** across three lanes—**Climate & Weather AI** (7), **Energy Forecasting** (4), and **Systems & Transition** (2). This figure is unique to this repository—not shared with the biomedical or epidemiology portfolios:
 
 ![Portfolio project theme map](assets/project_theme_map.png)
 
@@ -211,7 +211,7 @@ Then:
 - Promote reusable utilities into a shared `common/` package when overlap grows.
 - Add model cards and dataset cards to improve transparency.
 - Introduce CI checks for linting, environment validation, and notebook smoke tests.
-- Refresh root `assets/project_theme_map.png` when new thematic folders land.
+- Regenerate root `assets/project_theme_map.png` when new thematic folders land.
 
 ## Contributing
 1. Create a branch: `git checkout -b feature/<name>`
@@ -222,7 +222,6 @@ Then:
 
 ## Roadmap
 - Standardize dependency/environment files across all project folders.
-- Refresh the project theme map to include Diffusion, DeepSD, and ClimaX in the constellation graphic.
 - Add consistent model evaluation reports and comparison dashboards.
 - Introduce lightweight CI for notebook/script smoke tests.
 - Publish tagged portfolio releases by theme (weather AI, demand/load, market, transition, downscaling).
